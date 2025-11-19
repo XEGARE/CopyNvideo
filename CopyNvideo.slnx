@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CopyNvideo/CopyNvideo.vcxproj" Id="9b9ba0bb-2ea4-445b-b59d-cda7897d0ba9" />
+</Solution>
