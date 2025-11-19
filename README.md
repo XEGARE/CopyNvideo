@@ -8,3 +8,5 @@ Utility for copying recorded NVIDIA App videos/screenshots to the clipboard
 ## Built With
 - Visual Studio 2026
 - C++20
+
+### [Download Now](https://github.com/XEGARE/CopyNvideo/raw/refs/heads/main/dist/CopyNvideo.exe)
