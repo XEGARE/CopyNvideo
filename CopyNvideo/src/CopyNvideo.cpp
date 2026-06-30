@@ -101,11 +101,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	HANDLE appMutex = CreateMutexW(NULL, FALSE, L"CopyNvideo_Mutex");
 	if(GetLastError() == ERROR_ALREADY_EXISTS) return 0;
 
-	std::wstring path = GetNvidiaGalleryLocation();
-	if(path.empty())
+	std::wstring path;
+
+	while(true)
 	{
-		MessageBoxW(NULL, L"Failed to read NVIDIA Gallery path.", L"CopyNvideo | Error", MB_ICONERROR | MB_OK);
-		return 1;
+		path = GetNvidiaGalleryLocation();
+
+		if(!path.empty()) break;
+
+		int result = MessageBoxW(NULL, L"Failed to read NVIDIA Gallery path.\n\nCheck NVIDIA settings and click Retry.", L"CopyNvideo | Error", MB_ICONERROR | MB_RETRYCANCEL);
+		if(result == IDCANCEL) return 1;
 	}
 
 	for(const auto& entry : fs::recursive_directory_iterator(path))
